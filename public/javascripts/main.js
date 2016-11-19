@@ -9,8 +9,23 @@ for(var i = 0; i < data.length; i++){
 
 //Append a box to container
 
+//Append a box for these
 
-var chart = d3.select(".chart-container")
+var box = d3.select(".chart-container")
+.append('div')
+.attr("class", "box")
+
+box
+.append('div')
+.attr("class", "poll-title")
+.html(data[i].title)
+
+box
+.append('div')
+.attr("class", "poll-author")
+.html(data[i].author)
+
+var chart = box
 .append('svg')
 
 
@@ -81,34 +96,7 @@ choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
 {
 totalvotes: 5,
 question: "HER?",
-title: "A Q",
-creator: "James",
-choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
-},
-{
-totalvotes: 5,
-question: "HER?",
-title: "A Q",
-creator: "James",
-choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
-},{
-totalvotes: 5,
-question: "HER?",
-title: "A Q",
-creator: "James",
-choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
-},
-{
-totalvotes: 5,
-question: "HER?",
-title: "A Q",
-creator: "James",
-choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
-},
-{
-totalvotes: 5,
-question: "HER?",
-title: "A Q",
+title: "A Qfsfd",
 creator: "James",
 choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
 },

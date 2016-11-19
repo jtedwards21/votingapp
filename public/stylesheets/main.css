@@ -1,9 +1,13 @@
 body {
-  background-color: #7F7E3C;
+  background-color: #74347F;
 }
 
 .chart {
   background-color: #FFFB46;
+}
+
+.navbar {
+margin-bottom: 0px;
 }
 
 .page-title {
@@ -26,7 +30,7 @@ body {
   color: #555;
 }
 
-.chart-container {
+.middle {
   background-color: #FFFB46;
   margin: 40px auto;
   padding: 0px;
