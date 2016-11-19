@@ -2,32 +2,17 @@
 
 //d3 to turn several polls into bar graphs
 
-var data = {
-totalvotes: 5,
-question: "HER?",
-title: "A Q",
-creator: "James",
-choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
-}
+document.addEventListener('DOMContentLoaded', function() {
 
-var xBarGap = 10;
-
-var margins = {
-top: 5,
-bottom: 5,
-left: 5,
-right: 5
-}
-
-var height = 200 - margins.top - margins.bottom
-var width = 200 - margins.left - margins.right
 
 for(var i = 0; i < data.length; i++){
 
 //Append a box to container
 
+
 var chart = d3.select(".chart-container")
 .append('svg')
+
 
 //Change dimensions
 chart.attr("class", "chart")
@@ -44,12 +29,13 @@ return d.choice
 })
 var maxVotes = d3.max(votesData)
 
-var barwidth = width/choiceData.length
+var barWidth = width/choiceData.length
 
 var yScale = d3.scaleLinear().domain([0, maxVotes]).range([0, height])
 
 //Get Display for X axis
 var yAxis = d3.axisRight().scale(yScale).tickSize(0)
+
 
 //Fix inner section and write margins
 chart
@@ -60,13 +46,46 @@ chart
 .data(data[i].choices.slice())
 .enter()
 .append('rect')
-.attr("y", function(d){return yScale(d.votes)})
-.attr("x", function(d){return i*(width/choiceData.length)})
+.style("fill", "black")
+.style("stroke","black")
+.style("stroke-width", "1px")
+.style("opacity", .5)
+.attr("height", function(d){return yScale(d.votes);})
+.attr("y", function(d){return height - yScale(d.votes)})
+.attr("x", function(d){
+var n = choiceData.indexOf(d.choice)
+return n*(width/choiceData.length)
+})
 .attr("width", barWidth)
 .attr("class", "bar")
 
 
+n++
 
 }
+}, false);
+
+var data = [{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+}]
+
+
+var xBarGap = 10;
+
+var margins = {
+top: 5,
+bottom: 5,
+left: 5,
+right: 5
+}
+
+var height = 200 - margins.top - margins.bottom
+var width = 200 - margins.left - margins.right
+
+
 
 
