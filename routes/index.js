@@ -13,6 +13,21 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 
+	
+
+	/* GET login page. */
+	router.get('/', function(req, res) {
+
+    	// Display the Login page with any flash message, if any
+		res.render('index', { message: req.flash('message') });
+	});
+
+	router.get('/singin', function(req, res) {
+
+    	// Display the Login page with any flash message, if any
+		res.render('singin', { message: req.flash('message') });
+	});
+
 	//I need to have an address that client side can hit to get data
 	router.get('/polls/latest', function(req, res) {
 		var Poll = require('../models/poll');
@@ -21,13 +36,6 @@ module.exports = function(passport){
 			console.log(d[0])
 			res.send(JSON.stringify(d[0]));
 		})
-	});
-
-	/* GET login page. */
-	router.get('/', function(req, res) {
-
-    	// Display the Login page with any flash message, if any
-		res.render('index', { message: req.flash('message') });
 	});
 
 	/* Handle Login POST */
