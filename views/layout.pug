@@ -4,5 +4,18 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
   body
+    nav(class='navbar navbar-default')
+      div.container-fluid
+        div.navbar-header
+          button(type="button",class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+            span.sr-only
+              Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-ba
+          a(class="navbar-brand", href="#")
+            Brand
+        div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
     block content

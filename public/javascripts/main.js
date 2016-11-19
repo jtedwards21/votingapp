@@ -60,12 +60,59 @@ return n*(width/choiceData.length)
 .attr("class", "bar")
 
 
-n++
 
 }
 }, false);
 
 var data = [{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},
+{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},
+{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},
+{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},
+{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},
+{
+totalvotes: 5,
+question: "HER?",
+title: "A Q",
+creator: "James",
+choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
+},
+{
 totalvotes: 5,
 question: "HER?",
 title: "A Q",
