@@ -1,13 +1,25 @@
 body {
-  background-color: #74347F;
+  background-color: #3F7F7B;
 }
 
+
 .chart {
-  background-color: #FFFB46;
+  background-color: #E1FFFD;
 }
 
 .navbar {
 margin-bottom: 0px;
+}
+
+.poll-title {
+  font-family: Roboto;
+  font-size: 1.5em;
+  width: 200px;
+}
+
+.poll-author{
+  display: inline;
+  float: right;
 }
 
 .page-title {
@@ -31,11 +43,9 @@ margin-bottom: 0px;
 }
 
 .middle {
-  background-color: #FFFB46;
+  background-color: #E1FFFD;
   margin: 40px auto;
   padding: 0px;
-  width: 1250px;
-  height: 670px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
 }
 

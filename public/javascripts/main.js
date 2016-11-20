@@ -4,26 +4,32 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+//Add a border radius
+d3.select('.middle')
+.style("border-radius", "6px")
+
 
 for(var i = 0; i < data.length; i++){
 
 //Append a box to container
 
 //Append a box for these
-
-var box = d3.select(".chart-container")
+if(i < 2){
+var box = d3.select("#top-row")
 .append('div')
-.attr("class", "box")
+} else{
+var box = d3.select("#bottom-row")
+.append('div')
+}
+
+
+box
+.attr("class", "col-xs-6")
 
 box
 .append('div')
-.attr("class", "poll-title")
+.attr("class", "poll-title text-center")
 .html(data[i].title)
-
-box
-.append('div')
-.attr("class", "poll-author")
-.html(data[i].author)
 
 var chart = box
 .append('svg')
@@ -112,7 +118,7 @@ choices: [{choice: "Hi", votes: 3}, {choice: "n", votes: 2}]
 var xBarGap = 10;
 
 var margins = {
-top: 5,
+top: 15,
 bottom: 5,
 left: 5,
 right: 5
