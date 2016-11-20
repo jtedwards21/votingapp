@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Poll = require('../models/poll');
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler 
@@ -11,26 +12,41 @@ var isAuthenticated = function (req, res, next) {
 	res.redirect('/');
 }
 
+var redirectHome = function (req, res, next) {
+	if (req.isAuthenticated()){res.redirect('/home')}
+	else{return next()}
+}
+
 module.exports = function(passport){
 
 	
 
 	/* GET login page. */
-	router.get('/', function(req, res) {
+	router.get('/', redirectHome,  function(req, res) {
 
     	// Display the Login page with any flash message, if any
 		res.render('index', { message: req.flash('message') });
 	});
 
-	router.get('/singin', function(req, res) {
+	router.get('/signin', function(req, res) {
 
     	// Display the Login page with any flash message, if any
-		res.render('singin', { message: req.flash('message') });
+		res.render('signin', { message: req.flash('message') });
+	});
+
+	router.get('/polls/create', function(req, res){
+		res.render('create', {message: req.flash('message')})
+})
+
+	router.get('/polls/user/:user', function(req, res){
+		//I need to get the four most recent polls of a specific user
+		Poll.find({})
+		.where('creator').equals(req.params.user)
+		.exec(function(err, d){res.send(JSON.stringify(d))});
 	});
 
 	//I need to have an address that client side can hit to get data
 	router.get('/polls/latest', function(req, res) {
-		var Poll = require('../models/poll');
 		
 		var cursor = Poll.find({ }, function(err, d){
 			console.log(d[0])
@@ -48,6 +64,17 @@ module.exports = function(passport){
 	/* GET Registration Page */
 	router.get('/signup', function(req, res){
 		res.render('register',{message: req.flash('message')});
+	});
+
+	/* Handle Poll Creation */
+	
+	router.post('/polls/new', function(req, res){
+		var title = req.body.title
+		var creator = req.body.creator
+		var question = req.body.question
+		var totalvotes = 0
+		var choices = req.body.choices
+		//Insert into database
 	});
 
 	/* Handle Registration POST */

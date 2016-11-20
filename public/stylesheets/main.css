@@ -44,8 +44,7 @@ margin-bottom: 0px;
 
 .middle {
   background-color: #E1FFFD;
-  margin: 40px auto;
-  padding: 0px;
+  margin-top: 40px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
 }
 

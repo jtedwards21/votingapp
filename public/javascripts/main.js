@@ -91,6 +91,8 @@ chart
 .attr('text-anchor', "middle")
 }
 
+//Place buttons to vote
+
 }
 }, false);
 
