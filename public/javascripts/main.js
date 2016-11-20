@@ -80,7 +80,16 @@ return n*(width/choiceData.length)
 .attr("width", barWidth)
 .attr("class", "bar")
 
+for(var j = 0; j < choiceData.length; j++){
+//Draw the x axis
 
+chart
+.append('text')
+.attr('y', 0)
+.attr('x', j*(width/choiceData.length))
+.text(choiceData[j])
+.attr('text-anchor', "middle")
+}
 
 }
 }, false);
