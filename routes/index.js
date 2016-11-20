@@ -9,7 +9,7 @@ var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/');
+	res.redirect('/signin');
 }
 
 var redirectHome = function (req, res, next) {
@@ -72,9 +72,32 @@ module.exports = function(passport){
 		var title = req.body.title
 		var creator = req.body.creator
 		var question = req.body.question
-		var totalvotes = 0
-		var choices = req.body.choices
+		var choices = []
+		
 		//Insert into database
+		var p = new Poll;
+		p.title = title;
+		p.creator = creator
+		p.question = question
+		p.totalvotes = 0
+		p.choices = choices
+		//The problems is with the choices model
+		//I can try to make a new model first and then push it in
+		var keys = Object.keys(req.body).slice(3)
+		console.log(keys)
+		for(k in keys){
+			p.choices.push(Object.getOwnPropertyDescriptor(req.body, keys[k]).value)
+			console.log(p.choices)
+		}
+		
+		p.save(function(err){
+		if(err){
+		console.log(err)
+		}
+		res.redirect('/home');
+		})
+
+		
 	});
 
 	/* Handle Registration POST */
